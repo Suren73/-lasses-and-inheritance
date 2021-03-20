@@ -1,4 +1,4 @@
-import { typeZombie } from '../zombie';
+import Zombie from '../zombie';
 
 test('testing the player creation function', () => {
   const expected = {
@@ -9,36 +9,18 @@ test('testing the player creation function', () => {
     attack: 40,
     defence: 10,
   };
-  const received = typeZombie('Andrei', 'Zombie');
+  const received = new Zombie('Andrei');
   expect(received).toEqual(expected);
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeZombie('A', 'Zombie');
-  }).toThrow();
+  expect(() => new Zombie('A')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeZombie('Andreiiiiii', 'Zombie');
-  }).toThrow();
+  expect(() => new Zombie('Andreiiiiii')).toThrow('Ошибка имени');
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeZombie('Andrei', 'Zombie1');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeZombie(10, 'Zombie');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeZombie('Andrei', 10);
-  }).toThrow();
+  expect(() => new Zombie(10)).toThrow();
 });

@@ -1,4 +1,4 @@
-import { typeSwordsman } from '../swordsman';
+import Swordsman from '../swordsman';
 
 test('testing the player creation function', () => {
   const expected = {
@@ -9,36 +9,18 @@ test('testing the player creation function', () => {
     attack: 40,
     defence: 10,
   };
-  const received = typeSwordsman('Andrei', 'Swordsman');
+  const received = new Swordsman('Andrei');
   expect(received).toEqual(expected);
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeSwordsman('A', 'Swordsman');
-  }).toThrow();
+  expect(() => new Swordsman('A')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeSwordsman('Andreiiiiii', 'Swordsman');
-  }).toThrow();
+  expect(() => new Swordsman('Andreiiiiii')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeSwordsman('Andrei', 'Swordsman1');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeSwordsman(10, 'Swordsman');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeSwordsman('Andrei', 10);
-  }).toThrow();
+  expect(() => new Swordsman(10, 'Swordsman')).toThrow();
 });

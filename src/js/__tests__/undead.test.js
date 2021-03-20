@@ -1,4 +1,4 @@
-import { typeUndead } from '../undead';
+import Undead from '../undead';
 
 test('testing the player creation function', () => {
   const expected = {
@@ -9,36 +9,18 @@ test('testing the player creation function', () => {
     attack: 25,
     defence: 25,
   };
-  const received = typeUndead('Andrei', 'Undead');
+  const received = new Undead('Andrei');
   expect(received).toEqual(expected);
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeUndead('A', 'Undead');
-  }).toThrow();
+  expect(() => new Undead('A')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeUndead('Andreiiiiii', 'Undead');
-  }).toThrow();
+  expect(() => new Undead('Andreiiiiii')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeUndead('Andrei', 'Undead1');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeUndead(10, 'Undead');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeUndead('Andrei', 10);
-  }).toThrow();
+  expect(() => new Undead(10)).toThrow();
 });

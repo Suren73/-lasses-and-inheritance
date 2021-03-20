@@ -1,4 +1,4 @@
-import { typeMagician } from '../magician';
+import Magician from '../magician';
 
 test('testing the player creation function', () => {
   const expected = {
@@ -9,36 +9,18 @@ test('testing the player creation function', () => {
     attack: 10,
     defence: 40,
   };
-  const received = typeMagician('Andrei', 'Magician');
+  const received = new Magician('Andrei');
   expect(received).toEqual(expected);
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeMagician('A', 'Magician');
-  }).toThrow();
+  expect(() => new Magician('A')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeMagician('Andreiiiiii', 'Magician');
-  }).toThrow();
+  expect(() => new Magician('Andreiiiiii')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeMagician('Andrei', 'Magician1');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeMagician(10, 'Magician');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeMagician('Andrei', 10);
-  }).toThrow();
+  expect(() => new Magician(10)).toThrow();
 });

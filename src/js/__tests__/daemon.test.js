@@ -1,4 +1,4 @@
-import { typeDaemon } from '../daemon';
+import Daemon from '../daemon';
 
 test('testing the player creation function', () => {
   const expected = {
@@ -9,36 +9,18 @@ test('testing the player creation function', () => {
     attack: 10,
     defence: 40,
   };
-  const received = typeDaemon('Andrei', 'Daemon');
+  const received = new Daemon('Andrei');
   expect(received).toEqual(expected);
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeDaemon('A', 'Daemon');
-  }).toThrow();
+  expect(() => new Daemon('A')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeDaemon('Andreiiiiii', 'Daemon');
-  }).toThrow();
+  expect(() => new Daemon('Andreiiiiii')).toThrow();
 });
 
 test('testing the player creation function', () => {
-  expect(() => {
-    typeDaemon('Andrei', 'Daemon1');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeDaemon(10, 'Daemon');
-  }).toThrow();
-});
-
-test('testing the player creation function', () => {
-  expect(() => {
-    typeDaemon('Andrei', 10);
-  }).toThrow();
+  expect(() => new Daemon(10)).toThrow();
 });
